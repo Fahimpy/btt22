@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Teachers' Training (BTT) Batch-22</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+        max-width: 1200px; /* কনটেন্টের সর্বোচ্চ প্রস্থ */
+        margin: 0 auto; /* সেন্টারে রাখার জন্য */
+        padding: 20px; /* ভেতরে ফাঁকা রাখার জন্য */
+    }
+        header, footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        .grid div {
+            padding: 10px;
+        }
+        .content {
+            text-align: center;
+            margin: 20px;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        img {
+            max-width: 150px;
+            max-height: 150px;
+            display: block;
+            margin: auto;
+        }
+        .heading {
+            margin: 30px 0 10px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: underline;
+            color: darkblue;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="static/logo.webp" alt="Logo" style="max-width: 120px;">
+    </header>
+    <div class="container">
+
+    <div class="grid">
+        <div><img src="static/logo1.png" alt="Logo"style="max-width: 140px;"></div>
+        <div><h1 style="font-size: 35px;">Basic Teachers' Training (BTT)</h1></div>
+        <div><img src="static/logo2.png" alt="Logo"style="max-width: 140px;"></div>
+    </div>
+
+    <div class="content">
+        <p>ICT for Education in Secondary and Higher education level project (Phase-2, 1st Revised)</p>
+        <p>Directorate of Secondary & Higher Education Bangladesh, Dhaka</p>
+        <p style="font-size: 20px;color:orange;"><b>Batch: BTT Batch 22</b></p>
+    </div>
+
+    <h3 class="heading">Trainers List</h3>
+    <table>
+        <tr>
+            <th>Details</th>
+            <th>Photo</th>
+        </tr>
+        {% for trainer in trainers %}
+        <tr>
+            <td>
+                <p><strong>Name:</strong> {{ trainer.name }}</p>
+                <p><strong>Designation:</strong> {{ trainer.designation }}</p>
+                <p><strong>School Name:</strong> {{ trainer.school_name }}</p>
+                <p><strong>Mobile No.:</strong> {{ trainer.mobile_no }}</p>
+            </td>
+            <td><img src="{{ trainer.photo.url }}" alt=" {{ trainer.name }} Photo"></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <h3 class="heading">Trainees List</h3>
+    <table>
+        <tr>
+            <th>Details</th>
+            <th>Photo</th>
+        </tr>
+        {% for trainee in trainees %}
+        <tr>
+            <td>
+                <p><strong>Name:</strong> {{ trainee.name }}</p>
+                <p><strong>Designation:</strong> {{ trainee.designation }}</p>
+                <p><strong>School Name:</strong> {{ trainee.school_name }}</p>
+                <p><strong>Mobile No.:</strong> {{ trainee.mobile_no }}</p>
+            </td>
+            <td><img src="{{ trainee.photo.url }}" alt="{{ trainee.name }} Photo"></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+    <footer>
+        <p>Thanks to <b>Fahim Hossain Tushar</b>, <em>CEO @ NextPath Agency</em></p>
+    </footer>
+</body>
+</html>
