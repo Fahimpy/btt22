@@ -1,0 +1,1 @@
+web: gunicorn btt_project.wsgi:application
