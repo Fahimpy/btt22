@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  #
 ]
 
 ROOT_URLCONF = 'btt_project.urls'
@@ -112,14 +113,20 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
+import os
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+
+# Directory where collectstatic will store files
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Add additional directories containing static files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Your custom static folder
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
